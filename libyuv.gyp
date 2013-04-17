@@ -8,6 +8,7 @@
 
 {
   'variables': {
+     'enable_jpeg%': 1,
      'use_system_libjpeg%': 0,
   },
   'targets': [
@@ -17,7 +18,7 @@
       'type': 'static_library',
       'conditions': [
         # TODO(fbarchard): Use gyp define to enable jpeg.
-        [ 'OS != "ios"', {
+        [ 'enable_jpeg==1 and OS != "ios"', {
           'defines': [
             'HAVE_JPEG'
           ],
